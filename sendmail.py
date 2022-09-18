@@ -1,13 +1,35 @@
 import sys
 import os
-import argparse
-import smtplib
-from email.encoders import encode_base64
-from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.utils import COMMASPACE
+import subprocess
+
+try :
+    import argparse
+except :
+    subprocess.check_call([sys.executable,'-m','pip','install','--upgrade','pip'])
+    subprocess.check_call([sys.executable,'-m','pip','install','--upgrade','argparse'])
+    import argparse
+try :
+    import smtplib
+except :
+    subprocess.check_call([sys.executable,'-m','pip','install','--upgrade','pip'])
+    subprocess.check_call([sys.executable,'-m','pip','install','--upgrade','smtplib'])
+    import smtplib
+try :
+    from email.encoders import encode_base64
+    from email.mime.text import MIMEText
+    from email.mime.base import MIMEBase
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
+    from email.utils import COMMASPACE
+except :
+    subprocess.check_call([sys.executable,'-m','pip','install','--upgrade','pip'])
+    subprocess.check_call([sys.executable,'-m','pip','install','--upgrade','email'])
+    from email.encoders import encode_base64
+    from email.mime.text import MIMEText
+    from email.mime.base import MIMEBase
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
+    from email.utils import COMMASPACE
 
 SMTP_URL=""
 receiver_list=[]
